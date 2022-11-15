@@ -1,6 +1,6 @@
-
 <h2>Hi</h2>
 
-<app-user-details *ngFor="let user of users" [user]="user">
-</app-user-details>
-
+<div *ngFor="let user of users">
+  <h4>{{user.name}}</h4>
+  <h6>{{user.password}}</h6>
+</div>

@@ -1,23 +1,21 @@
-export type Users = User[]
-
 export interface User {
-  Id: Number;
-  Name: String;
-  Password: String;
-  Participations: Participation[];
+  id: Number;
+  name: String;
+  password: String;
+  participations: Participation[];
 }
 export interface ThingToDo {
-  Id: Number;
-  EventName: String;
-  Time: Date;
-  Price: Number;
-  Location: String;
-  Participations: Participation[];
+  id: Number;
+  eventName: String;
+  time: Date;
+  price: Number;
+  location: String;
+  participations: Participation[];
 }
 export interface Participation {
-  Id: number;
-  UserId: number;
-  User: User;
-  ThingToDoId: number;
-  ThingToDo: ThingToDo;
+  id: number;
+  userId: number;
+  user: User;
+  thingToDoId: number;
+  thingToDo: ThingToDo;
 }
