@@ -12,6 +12,6 @@ export class EventSystemService {
   constructor(private httpClient: HttpClient) {}
 
   getUsers = (): Observable<User[]> => {
-    return this.httpClient.get<User[]>(`${this.backendUrl}/User`);
+    return this.httpClient.get<User[]>(`${this.backendUrl}/user`);
   };
 }
