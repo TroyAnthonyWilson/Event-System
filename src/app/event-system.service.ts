@@ -29,11 +29,15 @@ export class EventSystemService {
     );
   };
 
-  //add participation
   addParticipation = (userId: Number, thingtodo: Number, participation: Participation): Observable<Participation> => {
     return this.httpClient.post<Participation>(
       `${this.backendUrl}/Participation?thingToDoId=${thingtodo}&userId=${userId}`,
       participation
+    );
+  };
+
+  deleteParticipation = (participationId: number): Observable<Participation> => {
+    return this.httpClient.delete<Participation>(`${this.backendUrl}/Participation/${participationId}`
     );
   }
   

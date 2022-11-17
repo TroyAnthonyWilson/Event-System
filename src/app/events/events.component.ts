@@ -19,6 +19,7 @@ export class EventsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUsers();
+    this.loadUsersEvents(this.currentUser);
   }
   
   selectUser(user: User) {
@@ -48,10 +49,17 @@ export class EventsComponent implements OnInit {
 
   addParticipation = (event: ThingToDo): void => {
     let participation: Participation = {} as Participation;
-    this._service.addParticipation(this.currentUser.id, event.id, participation).subscribe((data: Participation) => {
+    this._service.addParticipation(this.currentUser.id, event.id, participation).subscribe(() => {
       this.userParticipations.push(event);
     });
-  }
+  };
+
+  deleteParticipation = (event: ThingToDo): void => {
+    let participationId: number = 0;
+    this._service.deleteParticipation(participationId).subscribe(() => {
+      this.userParticipations = this.userParticipations.filter((item) => item.id !== event.id);
+    });
+  };
 
 
     getParticipationIds = () => {
