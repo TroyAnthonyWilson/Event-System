@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EventSystemService } from '../event-system.service';
 import { User } from '../interfaces';
 
 @Component({
@@ -13,5 +14,4 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
