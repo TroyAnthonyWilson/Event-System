@@ -1,6 +1,7 @@
 import { DatePipe, Time } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Participation, ThingToDo } from '../interfaces';
+import { EventSystemService } from '../event-system.service';
+import { Participation, ThingToDo, User } from '../interfaces';
 
 @Component({
   selector: 'app-event-form',
@@ -8,8 +9,8 @@ import { Participation, ThingToDo } from '../interfaces';
   styleUrls: ['./event-form.component.css']
 })
 export class EventFormComponent implements OnInit {
-  @Output() eventSave = new EventEmitter<ThingToDo>();
-  
+ 
+
   id: number = 1;
   eventName: string = '';
   time: Date = {} as Date;
@@ -17,19 +18,28 @@ export class EventFormComponent implements OnInit {
   location: string = '';
   participations: Participation[] = [];
   
-  constructor() { }
+  constructor(private _service: EventSystemService) { }
 
   ngOnInit(): void {
   }
 
+
+
+  
   submit = (): void => {
-    this.eventSave.emit({
+    let eventSave: ThingToDo = {
       id: this.id,
       eventName: this.eventName,
       time: this.time,
       price: this.price,
       location: this.location,
       participations: this.participations
-    })
+    };
+console.log(eventSave);
+    alert(`${this.eventName} added successfully!`);
+    this._service.addNewEvent(eventSave);
+    
 }
+
+
 }

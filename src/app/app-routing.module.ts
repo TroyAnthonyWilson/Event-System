@@ -10,6 +10,8 @@ const routes: Routes = [
   { path: '', component: EventsComponent },
   { path: 'manage/users', component: UserManagementComponent },
   { path: 'manage/events', component: EventFormComponent },
+  { path: 'users', component: UserManagementComponent },
+  { path: 'event-form', component: EventFormComponent}
 ];
 
 @NgModule({
