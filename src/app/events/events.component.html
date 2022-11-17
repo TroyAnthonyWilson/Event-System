@@ -61,6 +61,14 @@
           <p class="card-text">{{e.time | date:'EEE, MMM d, y'}}</p>
           <p class="card-text">{{e.time | date:'shortTime'}}</p>
         </div>
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button
+            class="btn btn-outline-danger"
+            (click)="deleteParticipation(e)"
+          >
+            Remove Attendance
+          </button>
+        </div>
       </div>
     </div>
   </div>
