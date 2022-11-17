@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EventSystemService } from '../event-system.service';
 import { User } from '../interfaces';
 
@@ -9,6 +9,9 @@ import { User } from '../interfaces';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
+  @Output() currentUser = this.selectedUser;
+  userIndex?: Number;
+  selectedUser?:User;
 
   constructor(private _service: EventSystemService) {}
 
@@ -22,4 +25,23 @@ export class UsersComponent implements OnInit {
       console.log(this.users);
     });
   };
+
+  changeUser = () => {
+    this.currentUser = this.selectedUser;
+  }
+  
+  update(event: User){
+    this.selectedUser = event
+    this.changeUser();
+    console.log(this.currentUser);
+    
+  }
+
+  // select =() => {
+  //   user: User = this.users[this.selected];
+
+  //   this.currentUser.emit({
+      
+  //   })
+  //}
 }

@@ -1,6 +1,7 @@
-<h2>Hi</h2>
-
-<div *ngFor="let user of users">
-  <h4>{{user.name}}</h4>
-  <h6>{{user.password}}</h6>
-</div>
+<h3>Choose Yourself</h3>
+<select [ngModel]="selectedUser" (ngModelChange)="update($event)">
+    <option value="default">----</option>
+    <option [ngValue]="user" *ngFor="let user of users" >
+        {{user.name}}
+    </option>
+</select>

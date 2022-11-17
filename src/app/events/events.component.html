@@ -1,1 +1,14 @@
-<p>events works!</p>
+<app-users></app-users>
+
+<div class="event-container">
+    <div *ngFor="let e of events">
+        <p>{{e.eventName}}</p>
+        <p>{{e.time}}</p>
+        <p>${{e.price}}</p>
+
+        <!-- <p>{{e.participations.length()}}</p> -->
+<button>Attend</button>
+
+    </div>
+</div>
+
