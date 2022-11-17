@@ -1,33 +1,46 @@
-
-<form (ngSubmit)="submit()" class="event-form">
+<div class="container">
+  <form (ngSubmit)="submit()" class="event-form">
     <h2 class="add-order-heading">Add an Event</h2>
-    <p>
+    <p class="col-6">
       <label for="eventName">event name:</label>
-      <input type="text"
-             name="eventName"
-             id="eventName"
-             [(ngModel)]="eventName" />
+      <input
+        type="text"
+        name="eventName"
+        class="form-control"
+        id="eventName"
+        [(ngModel)]="eventName"
+      />
     </p>
-    <p>
+    <p class="col-6">
       <label for="time">Time:</label>
-      <input type="datetime-local"
-             name="time"
-             id="time"
-             [(ngModel)]="time" />
+      <input
+        type="datetime-local"
+        name="time"
+        class="form-control"
+        id="time"
+        [(ngModel)]="time"
+      />
     </p>
-    <p>
+    <p class="col-6">
       <label for="price">price:</label>
-      <input type="number"
-             name="price"
-             id="price"
-             [(ngModel)]="price"/>
+      <input
+        type="number"
+        name="price"
+        class="form-control"
+        id="price"
+        [(ngModel)]="price"
+      />
     </p>
-    <p>
+    <p class="col-6">
       <label for="location">location:</label>
-      <input type="text"
-             name="location"
-             id="location"
-             [(ngModel)]="location" />
+      <input
+        type="text"
+        name="location"
+        class="form-control"
+        id="location"
+        [(ngModel)]="location"
+      />
     </p>
     <button>Submit</button>
   </form>
+</div>
