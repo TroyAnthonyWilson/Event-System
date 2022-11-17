@@ -8,7 +8,9 @@ import { EventsComponent } from './events/events.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgFor } from '@angular/common';
+import { EventFormComponent } from './event-form/event-form.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     EventsComponent,
     UsersComponent,
     UserDetailsComponent,
-    NavBarComponent
+    EventFormComponent,
+    NavBarComponent,
+    UserManagementComponent
     
   ],
   imports: [
