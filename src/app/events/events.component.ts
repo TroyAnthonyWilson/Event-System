@@ -48,6 +48,7 @@ export class EventsComponent implements OnInit {
 
   addParticipation = (event: ThingToDo): void => {
     let participation: Participation = {} as Participation;
+
     this._service.addParticipation(this.currentUser.id, event.id, participation).subscribe(() => {
       this.userParticipations.push(event);
       this.loadUsersEvents(this.currentUser);
@@ -56,8 +57,7 @@ export class EventsComponent implements OnInit {
 
   deleteParticipation = (event: ThingToDo): void => {
       this._service.deleteParticipation(this.currentUser.id ,event.id).subscribe(() => {
-      this.userParticipations = this.userParticipations.filter((item) => item.id !== event.id);
-      this.loadUsersEvents(this.currentUser);
+      this.loadUsersEvents(this.currentUser);    
     });
   };
 
