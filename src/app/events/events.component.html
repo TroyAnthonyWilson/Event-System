@@ -1,6 +1,6 @@
 <app-users (user)="selectUser($event)"></app-users>
+<app-user-details [user]="currentUser"></app-user-details>
 
-<h1>{{ currentUser.name }} Hi</h1>
 
 <div class="event-container">
   <div *ngFor="let e of events">
