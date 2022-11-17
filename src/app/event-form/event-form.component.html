@@ -1,0 +1,33 @@
+
+<form (ngSubmit)="submit()" class="add-new-form">
+    <h2 class="add-order-heading">Add an Event</h2>
+    <p>
+      <label for="eventName">event name:</label>
+      <input type="text"
+             name="eventName"
+             id="eventName"
+             [(ngModel)]="eventName" />
+    </p>
+    <p>
+      <label for="time">Time:</label>
+      <input type="datetime-local"
+             name="time"
+             id="time"
+             [(ngModel)]="time" />
+    </p>
+    <p>
+      <label for="price">price:</label>
+      <input type="number"
+             name="price"
+             id="price"
+             [(ngModel)]="price"/>
+    </p>
+    <p>
+      <label for="location">location:</label>
+      <input type="text"
+             name="location"
+             id="location"
+             [(ngModel)]="location" />
+    </p>
+    <button>Submit</button>
+  </form>

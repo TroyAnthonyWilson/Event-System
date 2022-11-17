@@ -10,9 +10,9 @@ import { Participation, ThingToDo, User } from '../interfaces';
 export class EventsComponent implements OnInit {
   currentUser: User = {} as User;
   userParticipations: ThingToDo[] = [];
-
   events: ThingToDo[] = [];
 
+  
   constructor(private _service: EventSystemService) {}
 
   ngOnInit(): void {
