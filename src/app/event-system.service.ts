@@ -15,15 +15,29 @@ export class EventSystemService {
     return this.httpClient.get<User[]>(`${this.backendUrl}/user`);
   };
 
-  createUser = (u: User): Observable<User> => {
-    console.log(u);
-    console.log(`${this.backendUrl}/user?name=${u.name}`);
-
-    return this.httpClient.post<any>(
-      `${this.backendUrl}/user/?name=${u.name}`,
-      u
+  createUser = (user: User): void => {
+    console.log('send that shit');
+    this.httpClient.post<User>(`${this.backendUrl}/User/${user.name}`, user
+    ).subscribe(
+      (data) => {
+        console.log(data);
+      },
     );
   };
+
+  updateUser = (user: User): void => {
+    this.httpClient.put<User>(`${this.backendUrl}/User/${user.id}/${user.name}`, user).subscribe(
+      (data) => {
+        console.log(data);
+      },
+    );
+  }; //{id}/{name}
+
+
+  addParticipation = (userId: Number, thingtodo: Number, participation: Participation): Observable<Participation> => {
+      return this.httpClient.post<Participation>(`${this.backendUrl}/Participation?thingToDoId=${thingtodo}&userId=${userId}`, participation);
+    };
+
 
   getEvents = (): Observable<ThingToDo[]> => {
     return this.httpClient.get<ThingToDo[]>(`${this.backendUrl}/thingtodo`);
@@ -45,16 +59,7 @@ export class EventSystemService {
     );
   };
 
-  addParticipation = (
-    userId: Number,
-    thingtodo: Number,
-    participation: Participation
-  ): Observable<Participation> => {
-    return this.httpClient.post<Participation>(
-      `${this.backendUrl}/Participation?thingToDoId=${thingtodo}&userId=${userId}`,
-      participation
-    );
-  };
+ 
 
   deleteParticipation = (
     userId: number,

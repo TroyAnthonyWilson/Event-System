@@ -49,7 +49,6 @@ export class UserManagementComponent implements OnInit {
 
   submit() {
     if (this.submitButtonText == 'Add User') {
-      alert(`${this.name} added successfully!`);
       let user: User = {
         id: this.id,
         name: this.name,
@@ -57,10 +56,17 @@ export class UserManagementComponent implements OnInit {
         participations: this.participations,
       };
       this._service.createUser(user);
-      console.log(user);
 
       this.loadUsers();
-    } else {
+    }
+    else if (this.submitButtonText == 'Update User') {
+      let user: User = {
+        id: this.id,
+        name: this.name,
+        password: this.password,
+        participations: this.participations,
+      };
+      this._service.updateUser(user);
     }
   }
 }
