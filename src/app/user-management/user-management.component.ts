@@ -59,5 +59,14 @@ export class UserManagementComponent implements OnInit {
 
       this.loadUsers();
     }
+    else if (this.submitButtonText == 'Update User') {
+      let user: User = {
+        id: this.id,
+        name: this.name,
+        password: this.password,
+        participations: this.participations,
+      };
+      this._service.updateUser(user);
+    }
   }
 }
