@@ -24,7 +24,12 @@ export class EventSystemService {
   };
 
   addNewEvent = (event: ThingToDo): Observable<ThingToDo> => {
-    return this.httpClient.post<ThingToDo>(`${this.backendUrl}/thingtodo`)
+    return this.httpClient.post<ThingToDo>(`${this.backendUrl}/participations/
+    name/${event.eventName}/
+    price/${event.price}/
+    location/${event.location}/
+    date/${event.time}
+    `, event)
   }
 
   getEventsByUser = (id: Number): Observable<ThingToDo[]> => {
