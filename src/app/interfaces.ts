@@ -1,14 +1,14 @@
 export interface User {
-  id: Number;
+  id: number;
   name: String;
   password: String;
   participations: Participation[];
 }
 export interface ThingToDo {
-  id: Number;
+  id: number;
   eventName: String;
   time: Date;
-  price: Number;
+  price: number | String;
   location: String;
   participations: Participation[];
 }

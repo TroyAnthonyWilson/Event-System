@@ -1,14 +1,35 @@
-<app-users></app-users>
+<app-users (user)="selectUser($event)"></app-users>
+
+<h1>{{ currentUser.name }} Hi</h1>
 
 <div class="event-container">
-    <div *ngFor="let e of events">
-        <p>{{e.eventName}}</p>
-        <p>{{e.time}}</p>
-        <p>${{e.price}}</p>
+  <div *ngFor="let e of events">
+    <p>{{e.eventName}}</p>
+    <p>{{e.time}}</p>
+    <p>${{e.price}}</p>
 
-        <!-- <p>{{e.participations.length()}}</p> -->
-<button>Attend</button>
 
-    </div>
+    <ng-container *ngIf="userParticipationsIds.includes(e.id) ; else joined">
+      <p>Joined</p>
+    </ng-container>
+    <ng-template #joined>
+      <button (click)="addParticipation(e)">Attend</button>
+    </ng-template>
+
+      <button (click)="deleteParticipation(e)">Remove Attendance</button>
+      
+    <!-- <p>{{e.participations.length()}}</p> -->
+    
+    
+  </div>
 </div>
 
+<div *ngIf="currentUser">
+  <h2>Attending:</h2>
+  <div class="event-container">
+    <div *ngFor="let e of userParticipations">
+      <p>{{e.eventName}}</p>
+      <p>{{e.time}}</p>
+    </div>
+  </div>
+</div>

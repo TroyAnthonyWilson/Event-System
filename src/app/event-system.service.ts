@@ -22,4 +22,23 @@ export class EventSystemService {
   getEvents = (): Observable<ThingToDo[]> => {
     return this.httpClient.get<ThingToDo[]>(`${this.backendUrl}/thingtodo`);
   };
+
+  getEventsByUser = (id: Number): Observable<ThingToDo[]> => {
+    return this.httpClient.get<ThingToDo[]>(
+      `${this.backendUrl}/participation/user/${id}`
+    );
+  };
+
+  addParticipation = (userId: Number, thingtodo: Number, participation: Participation): Observable<Participation> => {
+    return this.httpClient.post<Participation>(
+      `${this.backendUrl}/Participation?thingToDoId=${thingtodo}&userId=${userId}`,
+      participation
+    );
+  };
+
+  deleteParticipation = (userId: number , thingToDoId: number): Observable<Participation> => {
+    return this.httpClient.delete<Participation>(`${this.backendUrl}/Participation/user/${userId}/thingToDo/${thingToDoId}`  
+    );
+  }
+  
 }
