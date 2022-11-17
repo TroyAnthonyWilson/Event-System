@@ -7,14 +7,18 @@
     <p>{{e.eventName}}</p>
     <p>{{e.time}}</p>
     <p>${{e.price}}</p>
+    <div *ngIf="userParticipationsIds.includes(e.id)">
+      <p>Joined</p>
+    </div>
     <script>
       console.log(e)
     </script>
 
       <button>Remove Attendance</button>
-
+      <button (click)="addParticipation(e)">Attend</button>
     <!-- <p>{{e.participations.length()}}</p> -->
-    <button (click)="addParticipation(e)">Attend</button>
+    
+    
   </div>
 </div>
 
