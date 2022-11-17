@@ -15,13 +15,12 @@ export class EventsComponent implements OnInit {
 
   events: ThingToDo[] = [];
 
-  
   constructor(private _service: EventSystemService) {}
 
   ngOnInit(): void {
     this.loadUsers();
   }
-  
+
   selectUser(user: User) {
     this.currentUser = user;
     this.loadUsersEvents(this.currentUser);
@@ -43,25 +42,33 @@ export class EventsComponent implements OnInit {
   addParticipation = (event: ThingToDo): void => {
     let participation: Participation = {} as Participation;
 
-    this._service.addParticipation(this.currentUser.id, event.id, participation).subscribe(() => {
-      this.userParticipations.push(event);
-      this.loadUsersEvents(this.currentUser);
-    });
+    this._service
+      .addParticipation(this.currentUser.id, event.id, participation)
+      .subscribe(() => {
+        this.userParticipations.push(event);
+        this.loadUsersEvents(this.currentUser);
+      });
   };
 
   deleteParticipation = (event: ThingToDo): void => {
-      this._service.deleteParticipation(this.currentUser.id ,event.id).subscribe(() => {
-      this.loadUsersEvents(this.currentUser);    
-    });
+    this._service
+      .deleteParticipation(this.currentUser.id, event.id)
+      .subscribe(() => {
+        this.loadUsersEvents(this.currentUser);
+      });
   };
 
-
-    getParticipationIds = () => {
+  getParticipationIds = () => {
     let ids: Number[] = [];
 
     this.userParticipations.forEach((participation) => {
-      ids.push(participation.id);     
+      ids.push(participation.id);
     });
     this.userParticipationsIds = ids;
-    };
+  };
+
+  getTime = (t: Date): String => {
+    let date = new Date(t);
+    return `${date.getHours()}:${date.getMinutes()}`;
+  };
 }

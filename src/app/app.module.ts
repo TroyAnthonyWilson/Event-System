@@ -20,18 +20,16 @@ import { UserManagementComponent } from './user-management/user-management.compo
     UserDetailsComponent,
     EventFormComponent,
     NavBarComponent,
-    UserManagementComponent
-    
+    UserManagementComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgFor,
-    FormsModule
-
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
