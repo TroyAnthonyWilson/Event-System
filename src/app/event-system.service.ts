@@ -22,4 +22,10 @@ export class EventSystemService {
   getEvents = (): Observable<ThingToDo[]> => {
     return this.httpClient.get<ThingToDo[]>(`${this.backendUrl}/thingtodo`);
   };
+
+  getEventsByUser = (id: Number): Observable<ThingToDo[]> => {
+    return this.httpClient.get<ThingToDo[]>(
+      `${this.backendUrl}/participation/user/${id}`
+    );
+  };
 }
