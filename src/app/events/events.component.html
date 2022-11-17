@@ -3,8 +3,8 @@
 
 <div class="container-fluid">
   <h2>Upcoming Events:</h2>
-  <div class="row">
-    <div class="card m-3 p-3 col" *ngFor="let e of events">
+  <div class="row d-flex justify-content-center">
+    <div class="card m-3 p-3 col-5" *ngFor="let e of events">
       <div class="card-body p-0 pb-3">
         <h5 class="card-title text-center"><u>{{e.eventName}}</u></h5>
         <div class="container-fluid">
@@ -54,11 +54,11 @@
 <div *ngIf="currentUser.name">
   <h2>Attending:</h2>
   <div class="container-fluid">
-    <div class="row">
-      <div class="card m-3 p-1 col-2" *ngFor="let e of userParticipations">
+    <div class="row d-flex justify-content-center">
+      <div class="card m-3 p-3 col-5" *ngFor="let e of userParticipations">
         <div class="card-body">
           <h5 class="card-title">{{e.eventName}}</h5>
-          <p class="card-text">{{e.time | date:'EEE, MMMM d, y'}}</p>
+          <p class="card-text">{{e.time | date:'EEE, MMM d, y'}}</p>
           <p class="card-text">{{e.time | date:'shortTime'}}</p>
         </div>
       </div>
