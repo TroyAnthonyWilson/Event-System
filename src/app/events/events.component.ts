@@ -55,8 +55,7 @@ export class EventsComponent implements OnInit {
   };
 
   deleteParticipation = (event: ThingToDo): void => {
-    let participationId: number = 0;
-    this._service.deleteParticipation(participationId).subscribe(() => {
+      this._service.deleteParticipation(this.currentUser.id ,event.id).subscribe(() => {
       this.userParticipations = this.userParticipations.filter((item) => item.id !== event.id);
     });
   };

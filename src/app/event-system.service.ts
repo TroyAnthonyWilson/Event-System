@@ -36,8 +36,8 @@ export class EventSystemService {
     );
   };
 
-  deleteParticipation = (participationId: number): Observable<Participation> => {
-    return this.httpClient.delete<Participation>(`${this.backendUrl}/Participation/${participationId}`
+  deleteParticipation = (userId: number , thingToDoId: number): Observable<Participation> => {
+    return this.httpClient.delete<Participation>(`${this.backendUrl}/Participation/user/${userId}/thingToDo/${thingToDoId}`  
     );
   }
   
