@@ -14,4 +14,18 @@ export class EventSystemService {
   getUsers = (): Observable<User[]> => {
     return this.httpClient.get<User[]>(`${this.backendUrl}/user`);
   };
+
+  getCurrentUser = (): Observable<User[]> => {
+    return this.httpClient.get<User[]>(`${this.backendUrl}/user`);
+  };
+
+  getEvents = (): Observable<ThingToDo[]> => {
+    return this.httpClient.get<ThingToDo[]>(`${this.backendUrl}/thingtodo`);
+  };
+
+  getEventsByUser = (id: Number): Observable<ThingToDo[]> => {
+    return this.httpClient.get<ThingToDo[]>(
+      `${this.backendUrl}/participation/user/${id}`
+    );
+  };
 }

@@ -8,7 +8,7 @@ export interface ThingToDo {
   id: Number;
   eventName: String;
   time: Date;
-  price: Number;
+  price: Number | String;
   location: String;
   participations: Participation[];
 }

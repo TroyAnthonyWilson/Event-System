@@ -1,1 +1,29 @@
-<p>events works!</p>
+<app-users (user)="selectUser($event)"></app-users>
+
+<h1>{{ currentUser.name }} Hi</h1>
+
+<div class="event-container">
+  <div *ngFor="let e of events">
+    <p>{{e.eventName}}</p>
+    <p>{{e.time}}</p>
+    <p>${{e.price}}</p>
+    <script>
+      console.log(e)
+    </script>
+    <div *ngIf="userParticipations.includes(e)">
+      <button>Remove Attendance</button>
+    </div>
+    <!-- <p>{{e.participations.length()}}</p> -->
+    <button>Attend</button>
+  </div>
+</div>
+
+<div *ngIf="currentUser">
+  <h2>Attending:</h2>
+  <div class="event-container">
+    <div *ngFor="let e of userParticipations">
+      <p>{{e.eventName}}</p>
+      <p>{{e.time}}</p>
+    </div>
+  </div>
+</div>
