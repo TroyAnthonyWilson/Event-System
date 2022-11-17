@@ -47,16 +47,15 @@ export class EventSystemService {
     return this.httpClient.get<ThingToDo[]>(`${this.backendUrl}/thingtodo`);
   };
 
-  addNewEvent = (event: ThingToDo): Observable<ThingToDo> => {
-    return this.httpClient.post<ThingToDo>(
-      `${this.backendUrl}/participations/
-    name/${event.eventName}/
-    price/${event.price}/
-    location/${event.location}/
-    date/${event.time}
-    `,
-      event
-    );
+  addNewEvent = (event: ThingToDo): void => {
+    this.httpClient
+      .post<ThingToDo>(
+        `${this.backendUrl}/ThingToDo/name/${event.eventName}/price/${event.price}/location/${event.location}/date/${event.time}`,
+        event
+      )
+      .subscribe((data) => {
+        console.log(data);
+      });
   };
 
   getEventsByUser = (id: Number): Observable<ThingToDo[]> => {
