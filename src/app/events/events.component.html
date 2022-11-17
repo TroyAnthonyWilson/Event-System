@@ -1,35 +1,67 @@
 <app-users (user)="selectUser($event)"></app-users>
 <app-user-details [user]="currentUser"></app-user-details>
 
+<div class="container-fluid">
+  <h2>Upcoming Events:</h2>
+  <div class="row">
+    <div class="card m-3 p-3 col" *ngFor="let e of events">
+      <div class="card-body p-0 pb-3">
+        <h5 class="card-title text-center"><u>{{e.eventName}}</u></h5>
+        <div class="container-fluid">
+          <div class="row">
+            <div
+              class="col-9 d-flex flex-column"
+              style="border-right: 1px lightgrey solid;"
+            >
+              <p class="card-text">{{e.time | date:'fullDate'}}</p>
+              <p class="card-text">{{e.time | date:'shortTime'}}</p>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-center">
+              <p class="card-text text-right">{{e.price | currency}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="event-container">
-  <div *ngFor="let e of events">
-    <p>{{e.eventName}}</p>
-    <p>{{e.time}}</p>
-    <p>${{e.price}}</p>
+      <ng-container *ngIf="userParticipationsIds.includes(e.id) ; else joined">
+        <div class="btn-toolbar m-auto" role="toolbar">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button class="btn btn-outline-primary" disabled>
+              Joined
+            </button>
+          </div>
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button
+              class="btn btn-outline-danger"
+              (click)="deleteParticipation(e)"
+            >
+              Remove Attendance
+            </button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #joined>
+        <button class="btn btn-outline-primary" (click)="addParticipation(e)">
+          Attend
+        </button>
+      </ng-template>
 
-
-    <ng-container *ngIf="userParticipationsIds.includes(e.id) ; else joined">
-      <p>Joined</p>
-    </ng-container>
-    <ng-template #joined>
-      <button (click)="addParticipation(e)">Attend</button>
-    </ng-template>
-
-      <button (click)="deleteParticipation(e)">Remove Attendance</button>
-      
-    <!-- <p>{{e.participations.length()}}</p> -->
-    
-    
+      <!-- <p>{{e.participations.length()}}</p> -->
+    </div>
   </div>
 </div>
-
-<div *ngIf="currentUser">
+<br />
+<div *ngIf="currentUser.name">
   <h2>Attending:</h2>
-  <div class="event-container">
-    <div *ngFor="let e of userParticipations">
-      <p>{{e.eventName}}</p>
-      <p>{{e.time}}</p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card m-3 p-1 col-2" *ngFor="let e of userParticipations">
+        <div class="card-body">
+          <h5 class="card-title">{{e.eventName}}</h5>
+          <p class="card-text">{{e.time | date:'EEE, MMMM d, y'}}</p>
+          <p class="card-text">{{e.time | date:'shortTime'}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
