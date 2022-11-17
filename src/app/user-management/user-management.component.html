@@ -1,21 +1,34 @@
-<h3>Update User</h3>
-<select [ngModel]="selectedUser" (ngModelChange)="selectUser($event)">
-  <option [ngValue]="user" *ngFor="let user of users">
-    {{user.name}}
-  </option>
-</select>
+<div class="container m-auto">
+  <div class="d-flex justify-content-start">
+    <h3>Update User:&nbsp;</h3>
+    <select [ngModel]="selectedUser" (ngModelChange)="selectUser($event)">
+      <option [ngValue]="user" *ngFor="let user of users">
+        {{user.name}}
+      </option>
+    </select>
+  </div>
 
-<form (ngSubmit)="submit()" class="add-new-form">
-  <h2 class="add-order-heading">Manage User:</h2>
-  <p>Name: <input type="text" name="name" id="name" [(ngModel)]="name" /></p>
-  <!-- <p>
-    Password:
-    <input
-      type="password"
-      name="password"
-      id="password"
-      [(ngModel)]="password"
-    />
-  </p> -->
-  <button type="submit">{{submitButtonText}}</button>
-</form>
+  <form (ngSubmit)="submit()" class="add-new-form">
+    <h2 class="add-order-heading">Manage User:</h2>
+    <p class="col-6">
+      Name:
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        [(ngModel)]="name"
+      />
+    </p>
+    <!-- <p>
+        Password:
+        <input
+          type="password"
+          name="password"
+          id="password"
+          [(ngModel)]="password"
+        />
+      </p> -->
+    <button class="btn btn-primary" type="submit">{{submitButtonText}}</button>
+  </form>
+</div>
