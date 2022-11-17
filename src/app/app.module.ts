@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgFor } from '@angular/common';
+import { EventFormComponent } from './event-form/event-form.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     EventsComponent,
     UsersComponent,
     UserDetailsComponent,
+    EventFormComponent
     NavBarComponent
     
   ],

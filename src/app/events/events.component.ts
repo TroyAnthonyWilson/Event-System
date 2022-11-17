@@ -15,6 +15,7 @@ export class EventsComponent implements OnInit {
 
   events: ThingToDo[] = [];
 
+  
   constructor(private _service: EventSystemService) {}
 
   ngOnInit(): void {
