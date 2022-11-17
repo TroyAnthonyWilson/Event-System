@@ -16,7 +16,13 @@ export class EventSystemService {
   };
 
   createUser = (u: User): Observable<User> => {
-    return this.httpClient.post<User>(`${this.backendUrl}/users/${u.name}`, u);
+    console.log(u);
+    console.log(`${this.backendUrl}/user?name=${u.name}`);
+
+    return this.httpClient.post<any>(
+      `${this.backendUrl}/user/?name=${u.name}`,
+      u
+    );
   };
 
   getEvents = (): Observable<ThingToDo[]> => {

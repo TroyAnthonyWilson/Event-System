@@ -57,6 +57,9 @@ export class UserManagementComponent implements OnInit {
         participations: this.participations,
       };
       this._service.createUser(user);
+      console.log(user);
+
+      this.loadUsers();
     } else {
     }
   }
