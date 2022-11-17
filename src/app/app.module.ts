@@ -8,13 +8,15 @@ import { EventsComponent } from './events/events.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgFor } from '@angular/common';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsComponent,
     UsersComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    NavBarComponent
     
   ],
   imports: [
