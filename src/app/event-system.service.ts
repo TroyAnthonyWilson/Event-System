@@ -32,6 +32,7 @@ export class EventSystemService {
     `, event)
   }
 
+
   getEventsByUser = (id: Number): Observable<ThingToDo[]> => {
     return this.httpClient.get<ThingToDo[]>(
       `${this.backendUrl}/participation/user/${id}`

@@ -17,7 +17,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     EventsComponent,
     UsersComponent,
     UserDetailsComponent,
-    EventFormComponent
+    EventFormComponent,
     NavBarComponent
     
   ],
