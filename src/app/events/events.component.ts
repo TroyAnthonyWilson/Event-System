@@ -15,6 +15,7 @@ export class EventsComponent implements OnInit {
 
   events: ThingToDo[] = [];
 
+  
   constructor(private _service: EventSystemService) {}
 
   ngOnInit(): void {
@@ -24,16 +25,11 @@ export class EventsComponent implements OnInit {
   selectUser(user: User) {
     this.currentUser = user;
     this.loadUsersEvents(this.currentUser);
-    
-    //console.table(this.userParticipations);
   }
 
   loadUsers = (): void => {
     this._service.getEvents().subscribe((data: ThingToDo[]) => {
       this.events = data;
-      //console.log(this.events);
-      //console.log("Events loaded");     
-      //console.log(this.userParticipations);
     });
   };
 
@@ -41,8 +37,6 @@ export class EventsComponent implements OnInit {
     this._service.getEventsByUser(user.id).subscribe((data: ThingToDo[]) => {
       this.userParticipations = data;
       this.getParticipationIds();
-      //console.log("Events loaded");     
-      //console.log(this.userParticipations);
     });
   };
 
@@ -64,9 +58,10 @@ export class EventsComponent implements OnInit {
 
     getParticipationIds = () => {
     let ids: Number[] = [];
+
     this.userParticipations.forEach((participation) => {
-      ids.push(participation.id);
-      this.userParticipationsIds = ids;
+      ids.push(participation.id);     
     });
-}
+    this.userParticipationsIds = ids;
+    };
 }
