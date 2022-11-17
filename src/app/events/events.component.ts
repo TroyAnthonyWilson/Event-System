@@ -37,4 +37,11 @@ export class EventsComponent implements OnInit {
       this.userParticipations = data;
     });
   };
+
+  addParticipation = (event: ThingToDo): void => {
+    let participation: Participation = {} as Participation;
+    this._service.addParticipation(this.currentUser.id, event.id, participation).subscribe((data: Participation) => {
+      this.userParticipations.push(event);
+    });
+  }
 }

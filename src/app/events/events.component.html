@@ -10,11 +10,11 @@
     <script>
       console.log(e)
     </script>
-    <div *ngIf="userParticipations.includes(e)">
+
       <button>Remove Attendance</button>
-    </div>
+
     <!-- <p>{{e.participations.length()}}</p> -->
-    <button>Attend</button>
+    <button (click)="addParticipation(e)">Attend</button>
   </div>
 </div>
 

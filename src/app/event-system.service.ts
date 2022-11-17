@@ -28,4 +28,13 @@ export class EventSystemService {
       `${this.backendUrl}/participation/user/${id}`
     );
   };
+
+  //add participation
+  addParticipation = (userId: Number, thingtodo: Number, participation: Participation): Observable<Participation> => {
+    return this.httpClient.post<Participation>(
+      `${this.backendUrl}/Participation?thingToDoId=${thingtodo}&userId=${userId}`,
+      participation
+    );
+  }
+  
 }
