@@ -15,8 +15,14 @@ export class EventSystemService {
     return this.httpClient.get<User[]>(`${this.backendUrl}/user`);
   };
 
-  getCurrentUser = (): Observable<User[]> => {
-    return this.httpClient.get<User[]>(`${this.backendUrl}/user`);
+  createUser = (u: User): Observable<User> => {
+    console.log(u);
+    console.log(`${this.backendUrl}/user?name=${u.name}`);
+
+    return this.httpClient.post<any>(
+      `${this.backendUrl}/user/?name=${u.name}`,
+      u
+    );
   };
 
   getEvents = (): Observable<ThingToDo[]> => {
@@ -39,16 +45,23 @@ export class EventSystemService {
     );
   };
 
-  addParticipation = (userId: Number, thingtodo: Number, participation: Participation): Observable<Participation> => {
+  addParticipation = (
+    userId: Number,
+    thingtodo: Number,
+    participation: Participation
+  ): Observable<Participation> => {
     return this.httpClient.post<Participation>(
       `${this.backendUrl}/Participation?thingToDoId=${thingtodo}&userId=${userId}`,
       participation
     );
   };
 
-  deleteParticipation = (userId: number , thingToDoId: number): Observable<Participation> => {
-    return this.httpClient.delete<Participation>(`${this.backendUrl}/Participation/user/${userId}/thingToDo/${thingToDoId}`  
+  deleteParticipation = (
+    userId: number,
+    thingToDoId: number
+  ): Observable<Participation> => {
+    return this.httpClient.delete<Participation>(
+      `${this.backendUrl}/Participation/user/${userId}/thingToDo/${thingToDoId}`
     );
-  }
-  
+  };
 }
