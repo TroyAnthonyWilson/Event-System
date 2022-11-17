@@ -9,6 +9,7 @@ import { Participation, ThingToDo } from '../interfaces';
 })
 export class EventFormComponent implements OnInit {
   @Output() eventSave = new EventEmitter<ThingToDo>();
+  
   id: number = 1;
   eventName: string = '';
   time: Date = {} as Date;
